@@ -56,14 +56,14 @@ If you'd like to reset the scene :
 	* confusion between two different PlanningSceneInterface classes !	
 * Gazebo tutorial from [erdalpekel](https://erdalpekel.de/?p=123) : 
 	* tutorials unclear : create a json repo ? `mkdir ~/.panda_simulation`
-	* there doesn't seem to be a good grasp candidate generation in MoveIt, unless for cartesian planning there is Grasp Planner which will be eventually phased out in favor of the new MoveIt Task Constructor : https://github.com/ros-planning/moveit_task_constructor.
+	* there doesn't seem to be a good grasp candidate generation in MoveIt, unless for cartesian planning there is Grasp Planner which will be eventually phased out in favor of the new [MoveIt Task Constructor](https://github.com/ros-planning/moveit_task_constructor).
 * Gazebo box grasping fails : 
-	* this is because the physics engine is not optimized for grasping yet. The plugin provided in the package gazebo_grasp_plugin helps to overcome such issues : https://github.com/JenniferBuehler/gazebo-pkgs/wiki/Installation then panda_description has to be extended with an additional gazebo tag. 
-	* other (dirty) solution : use `EffortJointInterface` instead, modifying panda_hand controllers locally. https://answers.ros.org/question/291228/simple-box-grasping-fails/
-	* also see the fix under gripper friction in this link : https://buildmedia.readthedocs.org/media/pdf/de3-panda-wall/latest/de3-panda-wall.pdf
+	* this is because the physics engine is not optimized for grasping yet. The plugin provided in the [package gazebo_grasp_plugin](https://github.com/JenniferBuehler/gazebo-pkgs/wiki/Installation) helps to overcome such issues : then panda_description has to be extended with an additional gazebo tag. 
+	* other (dirty) solution : use `EffortJointInterface` instead, modifying panda_hand controllers locally as suggested [here](https://answers.ros.org/question/291228/simple-box-grasping-fails/).
+	* also see the fix under gripper friction in [this link](https://buildmedia.readthedocs.org/media/pdf/de3-panda-wall/latest/de3-panda-wall.pdf)
 * Potential useful packages :
-	* PICNIK (GraspIt) : https://github.com/ros-planning/moveit_grasps
-	* EZGrasp : https://github.com/gstavrinos/ez_pick_and_place
+	* [PICNIK (GraspIt)](https://github.com/ros-planning/moveit_grasps)
+	* [EZGrasp](https://github.com/gstavrinos/ez_pick_and_place)
 
 ### To improve
 * documentation : file replacement instructions to be improved with shorter `cp`/`cd` commands
