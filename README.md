@@ -54,7 +54,7 @@ If you'd like to reset the scene :
 * Issue in PlanningSceneInterface python wrapper (so I finally used C++ !) : 
 	* they are incomplete : https://github.com/ros-planning/moveit/issues/1217
 	* confusion between two different PlanningSceneInterface classes !	
-* Gazebo tutorial from [Erdelpeka](https://github.com/erdalpekel/panda_simulation) : 
+* Gazebo tutorial from [erdalpekel](https://erdalpekel.de/?p=123) : 
 	* tutorials unclear : create a json repo ? `mkdir ~/.panda_simulation`
 	* there doesn't seem to be a good grasp candidate generation in MoveIt, unless for cartesian planning there is Grasp Planner which will be eventually phased out in favor of the new MoveIt Task Constructor : https://github.com/ros-planning/moveit_task_constructor.
 * Gazebo box grasping fails : 
