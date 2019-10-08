@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package format="2">
   <name>cpp_panda_pick_place</name>
-  <version>0.0.0</version>
+  <version>1.0.0</version>
   <description>The cpp_panda_pick_place package</description>
   
   <maintainer email="iyt@protonmail.ch">Iyas Dalati</maintainer>

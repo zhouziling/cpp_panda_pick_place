@@ -24,16 +24,16 @@ sudo apt-get install ros-melodic-moveit-python
 <!--  -->
 - Clone the pick and place package in your catkin_ws and follow the instructions below
 <!--  -->
-	- The default planning parameters are too strict to easily find feasible motions.
-Replacing `panda_moveit_config/launch/trajectory_execution.launch.xml` with `cpp_panda_pick_place/files/trajectory_execution.launch.xml`
+	* The default planning parameters are too strict to easily find feasible motions.
+Replacing `panda_moveit_config/launch/trajectory_execution.launch.xml` with `cpp_panda_pick_place/modif/trajectory_execution.launch.xml`
 fixes this. Otherwise, one would get Controller is taking too long to execute trajectory 
-	- Gazebo physics engine is not optimized for grasping yet. 
+	* Gazebo physics engine is not optimized for grasping yet. 
 The plugin provided in the package gazebo_grasp_plugin helps to overcome such issues :
 https://github.com/JenniferBuehler/gazebo-pkgs/wiki/Installation
 Then panda_description has to be extended with an additional gazebo tag.
-To do so, go in the `franka_description` package, replace `panda_arm_hand.urdf.xacro` and `panda_hand.xacro`
-with the files of the same name provided in `cpp_panda_pick_place/files/`
-	- catkin_make (with libfranka options) in you catkin_ws :
+To do so, go in the `franka_description` package, replace `robots/panda_arm_hand.urdf.xacro` and `robots/panda_hand.xacro`
+with the files of the same name provided in `cpp_panda_pick_place/modif/`
+	* catkin_make (with libfranka options) in you catkin_ws :
 	`catkin_make -j4 -DCMAKE_BUILD_TYPE=Release -DFranka_DIR:PATH=/path/to/libfranka/build`
 
 ### The demo
