@@ -4,26 +4,19 @@ Package made to perform simple pick and place operations on cubes using a simula
 
 
 ### Installation pre-requisites
-* ROS melodic
-* MoveIt for melodic 
-<!-- 
-### MoveIt python bindings
-https://wiki.ros.org/moveit_python
-https://github.com/mikeferguson/moveit_python
-sudo apt-get install ros-melodic-moveit-python
- -->
+* ROS melodic 
+	* https://wiki.ros.org/melodic/Installation/Ubuntu
+* MoveIt for melodic
+	* https://moveit.ros.org/install/
 * Franka gazebo simulation
 	* https://github.com/erdalpekel/panda_simulation
 * Jennifer Buehler's gazebo-pkgs
 	* https://github.com/JenniferBuehler/gazebo-pkgs/wiki/Installation
 
 ### Install instructions
-* First make sure you have the melodic versions of ROS and MoveIt installed
-<!-- here place install commands -->
-* Clone the Gazebo Franka package in your catkin_ws and carefully follow install instructions
-<!--  -->
-* Clone the pick and place package in your catkin_ws and follow the instructions below
-<!--  -->
+* Make sure you installed the melodic versions of ROS and MoveIt
+* Clone "panda_simulation" package in your catkin directory and carefully follow their install instructions
+* Clone "cpp_panda_pick_place" package in your catkin directory and follow the instructions below
     * The default planning parameters are too strict to easily find feasible motions.
 Replacing `panda_moveit_config/launch/trajectory_execution.launch.xml` with `cpp_panda_pick_place/modif/trajectory_execution.launch.xml`
 fixes this. Otherwise, one would get Controller is taking too long to execute trajectory 
@@ -33,13 +26,13 @@ https://github.com/JenniferBuehler/gazebo-pkgs/wiki/Installation
 Then panda_description has to be extended with an additional gazebo tag.
 To do so, go in the `franka_description` package, replace `robots/panda_arm_hand.urdf.xacro` and `robots/panda_hand.xacro`
 with the files of the same name provided in `cpp_panda_pick_place/modif/`
-    * catkin_make (with libfranka options) in you catkin_ws :
+    * catkin_make (with libfranka options) in you catkin directory :
 	`catkin_make -j4 -DCMAKE_BUILD_TYPE=Release -DFranka_DIR:PATH=/path/to/libfranka/build`
 
 ### The demo
 Once everything installed run the following commands in distinct terminals :
-* `roslaunch panda_simulation simulation.launch load_grasp_fix:=true` and wait until simulation appears then spawn the objects with the next command
-* `roslaunch cpp_panda_pick_place spawn_objects.launch`
+* `roslaunch panda_simulation simulation.launch load_grasp_fix:=true` and wait until simulation appears
+* `roslaunch cpp_panda_pick_place spawn_objects.launch`  to spawn the objects in the scene
 
 #### pick and place service
 once objects are spawned :
@@ -55,7 +48,7 @@ If you'd like to reset the scene :
 1. Gazebo box grasping fails : 
 	* this is because the physics engine is not optimized for grasping yet. The plugin provided in the package gazebo_grasp_plugin helps to overcome such issues : https://github.com/JenniferBuehler/gazebo-pkgs/wiki/Installation
 then panda_description has to be extended with an additional gazebo tag.
-	* other (dirty) solution : use EffortJointInterface instead, modifying panda_hand controllers locally. https://answers.ros.org/question/291228/simple-box-grasping-fails/
+	* other (dirty) solution : use `EffortJointInterface` instead, modifying panda_hand controllers locally. https://answers.ros.org/question/291228/simple-box-grasping-fails/
 	* also see the fix under gripper friction in this link : https://buildmedia.readthedocs.org/media/pdf/de3-panda-wall/latest/de3-panda-wall.pdf
 
 ### Notes : 
@@ -66,11 +59,11 @@ then panda_description has to be extended with an additional gazebo tag.
 	* tutorials unclear : create a json repo ? `mkdir ~/.panda_simulation`
 	* there doesn't seem to be a good grasp candidate generation in MoveIt, unless for cartesian planning there is Grasp Planner 
 	which will be eventually phased out in favor of the new MoveIt Task Constructor : https://github.com/ros-planning/moveit_task_constructor.
-* Potential Improvements :
+* Potential useful packages :
 	* PICNIK (GraspIt) : https://github.com/ros-planning/moveit_grasps
 	* EZGrasp : https://github.com/gstavrinos/ez_pick_and_place
 
-### TODO :
+### To improve :
 * file structure :
 	* finalize documentation : make .hpp headers for the functions
 * user friendliness :
