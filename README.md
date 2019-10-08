@@ -37,12 +37,7 @@ If you'd like to reset the scene :
 * launch the node with `rosrun cpp_panda_pick_place reset_scene.py`
 * call the service with `rosservice call /reset_scene_service`
 
-### Occasional issues :
-1. Gazebo box grasping fails : 
-	* this is because the physics engine is not optimized for grasping yet. The plugin provided in the package gazebo_grasp_plugin helps to overcome such issues : https://github.com/JenniferBuehler/gazebo-pkgs/wiki/Installation
-then panda_description has to be extended with an additional gazebo tag.
-	* other (dirty) solution : use `EffortJointInterface` instead, modifying panda_hand controllers locally. https://answers.ros.org/question/291228/simple-box-grasping-fails/
-	* also see the fix under gripper friction in this link : https://buildmedia.readthedocs.org/media/pdf/de3-panda-wall/latest/de3-panda-wall.pdf
+<hr/>
 
 ### Notes : 
 * issue in PlanningSceneInterface python wrapper : 
@@ -54,6 +49,13 @@ then panda_description has to be extended with an additional gazebo tag.
 * Potential useful packages :
 	* PICNIK (GraspIt) : https://github.com/ros-planning/moveit_grasps
 	* EZGrasp : https://github.com/gstavrinos/ez_pick_and_place
+
+### Encountered issues & workarounds:
+1. Gazebo box grasping fails : 
+	* this is because the physics engine is not optimized for grasping yet. The plugin provided in the package gazebo_grasp_plugin helps to overcome such issues : https://github.com/JenniferBuehler/gazebo-pkgs/wiki/Installation
+then panda_description has to be extended with an additional gazebo tag.
+	* other (dirty) solution : use `EffortJointInterface` instead, modifying panda_hand controllers locally. https://answers.ros.org/question/291228/simple-box-grasping-fails/
+	* also see the fix under gripper friction in this link : https://buildmedia.readthedocs.org/media/pdf/de3-panda-wall/latest/de3-panda-wall.pdf
 
 ### To improve :
 * file structure :
@@ -74,3 +76,5 @@ then panda_description has to be extended with an additional gazebo tag.
 * https://wiki.ros.org/CppStyleGuide
 * https://wiki.ros.org/Packages
 * https://github.com/leggedrobotics/ros_best_practices/wiki
+
+<hr/>
