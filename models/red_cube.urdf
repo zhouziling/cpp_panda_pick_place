@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<robot name="red_cube">    
+    <link name="red_cube_link">
+        <inertial>
+            <origin xyz="0 0 0" />
+            <mass value="1.0" />
+            <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0" />
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0"/>
+            <geometry>
+                <box size="0.05 0.05 0.05" />
+            </geometry>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0"/>
+            <geometry>
+                <box size="0.05 0.05 0.05" />
+            </geometry>
+
+            <surface>
+                <friction>
+                    <ode>
+                        <mu>100</mu>
+                        <mu2>50</mu2>
+                        <fdir1>0 0 1</fdir1>
+                        <slip1>0.0</slip1>
+                        <slip2>0.0</slip2>
+                    </ode>
+                </friction>
+                <contact>
+                    <ode>
+                        <kp>100000.000000</kp>
+                        <kd>10.00000</kd>
+                        <max_vel>2.000000</max_vel>
+                        <min_depth>0.0001</min_depth>
+                    </ode>
+                </contact>
+            </surface>
+
+<!--             <contact_coefficients mu="500.0" kp="10000000" kd="1.0" /> 
+ -->        </collision>
+    </link>
+
+    <gazebo reference="red_cube_link">
+        <gravity>1</gravity>
+    </gazebo>
+
+    <gazebo reference="red_cube_link">
+        <material>Gazebo/Red</material>
+    </gazebo>
+</robot>

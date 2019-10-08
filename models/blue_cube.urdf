@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<robot name="blue_cube">    
+    <link name="blue_cube_link">
+        <inertial>
+            <origin xyz="0 0 0" />
+            <mass value="1.0" />
+            <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0" />
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0"/>
+            <geometry>
+                <box size="0.05 0.05 0.05" />
+            </geometry>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0"/>
+            <geometry>
+                <box size="0.05 0.05 0.05" />
+            </geometry>
+        </collision>
+    </link>
+
+    <gazebo reference="blue_cube_link">
+        <gravity>1</gravity>
+    </gazebo>
+
+    <gazebo reference="blue_cube_link">
+        <material>Gazebo/Blue</material>
+    </gazebo>
+</robot>

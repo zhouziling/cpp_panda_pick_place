@@ -1,0 +1,14 @@
+<launch>
+	<!-- TODO : neater description using xacro -->
+    <param name="red_cube_description" command="$(find xacro)/xacro --inorder $(find cpp_panda_pick_place)/models/red_cube.urdf"/>
+    <node name="red_cube_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" args="robot_description:=red_cube_description" />
+    <node name="spawn__red_cube" pkg="gazebo_ros" type="spawn_model" args="-param red_cube_description -urdf -model red_cube -x 0.6 -y 0 -z 0.1"/>
+
+    <param name="green_cube_description" command="$(find xacro)/xacro --inorder $(find cpp_panda_pick_place)/models/green_cube.urdf"/>
+    <node name="green_cube_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" args="robot_description:=green_cube_description" />
+    <node name="spawn_green_cube" pkg="gazebo_ros" type="spawn_model" args="-param green_cube_description -urdf -model green_cube -x -0.3 -y -0.4 -z 0.1"/>
+
+    <param name="blue_cube_description" command="$(find xacro)/xacro --inorder $(find cpp_panda_pick_place)/models/blue_cube.urdf"/>
+    <node name="blue_cube_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" args="robot_description:=blue_cube_description" />
+    <node name="spawn_blue_cube" pkg="gazebo_ros" type="spawn_model" args="-param blue_cube_description -urdf -model blue_cube -x 0.6 -y -0.4 -z 0.1"/>
+</launch>
