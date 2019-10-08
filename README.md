@@ -16,9 +16,13 @@ Package made to perform simple pick and place operations on colored cubes using 
 
 ### Install instructions
 * Make sure you installed the melodic versions of ROS and MoveIt
-* Clone "panda_simulation" package in your catkin directory and carefully follow their install instructions
-* Clone "cpp_panda_pick_place" package in your catkin directory and follow the instructions below
-    * The default parameters of the moveit planners are too strict to easily find feasible motions. Replacing `panda_moveit_config/launch/trajectory_execution.launch.xml` with `cpp_panda_pick_place/modif/trajectory_execution.launch.xml` fixes this. Otherwise, one would get `Controller is taking too long to execute trajectory`. 
+* Clone "panda_simulation" package in your catkin directory with 
+`git clone https://github.com/erdalpekel/panda_simulation.git`
+and carefully follow its install instructions
+* Clone "cpp_panda_pick_place" package in your catkin directory with 
+`git clone https://github.com/iya-dt/cpp_panda_pick_place.git` 
+and follow the instructions below 
+    * The default parameters of the moveit planners are too strict to easily find feasible motions. Replacing `panda_moveit_config/launch/trajectory_execution.launch.xml` with `cpp_panda_pick_place/modif/trajectory_execution.launch.xml` fixes this. Otherwise, one would get "Controller is taking too long to execute trajectory". 
     * Gazebo physics engine is not optimized for grasping yet. The plugin provided in the package gazebo_grasp_plugin helps to overcome such issues : https://github.com/JenniferBuehler/gazebo-pkgs/wiki/Installation 
     Follow the package install instructions, then go in the `franka_description` package, replace `robots/panda_arm_hand.urdf.xacro` and `robots/panda_hand.xacro` with the files of the same name provided in `cpp_panda_pick_place/modif`. By doing so, we make the grasping possible in Gazebo.
     * catkin_make in your catkin directory :
@@ -62,8 +66,9 @@ If you'd like to reset the scene :
 	* EZGrasp : https://github.com/gstavrinos/ez_pick_and_place
 
 ### To improve
+* documentation : file replacement instructions to be improved with shorter `cp`/`cd` commands
 * file structure :
-	* finalize documentation : make .hpp headers for the functions
+	* functions' documentation : make .hpp headers for the functions
 * user friendliness :
 	* create a launchFile : sim + spawn + node 
 	* planners don't always find a valid path. Try to play with `setGoalTolerance`
