@@ -117,6 +117,7 @@ catkin_package(
 #  LIBRARIES cpp_panda_pick_place
 #  CATKIN_DEPENDS roscpp rospy std_msgs
 #  DEPENDS system_lib
+   CATKIN_DEPENDS message_runtime
 )
 
 ###########
